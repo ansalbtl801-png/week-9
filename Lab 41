@@ -1,0 +1,19 @@
+import numpy as np
+
+
+
+
+def simulate_coin_flips(n=5000):
+    outcomes = np.random.choice(["H", "T"], size=n, p=[0.5, 0.5])
+    return np.mean(outcomes == "H") # Empirical P(Heads)
+p_heads = simulate_coin_flips() # ≈ 0.5, but rarely exactly 0.5
+
+
+coin_space = ["H", "T"]
+die_space = [1, 2, 3, 4, 5, 6]
+event_even = {x for x in die_space if x % 2 == 0} # {2, 4, 6}
+event_high = {x for x in die_space if x >= 4} # {4, 5, 6}
+print("P(even) =", len(event_even)/len(die_space)) # 0.5
+
+
+print("\n", p_heads)
