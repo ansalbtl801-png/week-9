@@ -1,0 +1,18 @@
+import numpy as np
+from scipy import stats
+
+
+
+errors = np.random.normal(loc=0, scale=1, size=1000) # Residuals
+print("Mean residual:", errors.mean()) # Should be near 0
+
+
+dist = stats.norm(0, 1)
+prob_between = dist.cdf(1) - dist.cdf(-1) # P(-1 ≤ X ≤ 1)
+print("P(-1 ≤ X ≤ 1):", prob_between) # ≈ 0.68
+
+
+dist = stats.expon(scale=2.0) # Exponential with mean=2
+samples = dist.rvs(100000)
+print("Empirical mean:", samples.mean()) # ≈ 2.0
+print("Theoretical mean:", dist.mean()) # Exactly 2.0
